@@ -1,0 +1,77 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  --white-color1: #FFFFFF;
+  --white-color2: #FFF;
+  --white-color3: #F8F9FA;
+  --gray-color1: #CCC;
+  --gray-color2: #DDD;
+  --dark-color1: #000000;
+  --blue-color1: #0000FF;
+  --blue-color2: #00008B;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--gray-color2);
+  border-radius: 10px;
+  background-color: var(--white-color2);
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--dark-color1);
+}
+
+.file-input {
+  margin: 20px 0;
+}
+
+.file-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-button {
+  background-color: var(--blue-color1);
+  color: var(--white-color1);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.upload-button:hover {
+  background-color: var(--blue-color2);
+}
+
+.transcription-result {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--dark-color1);
+}
+
+.transcription-result h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--blue-color2);
+}
+
+.transcription-result p {
+  background-color: var(--white-color3);
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid var(--gray-color2);
+}
