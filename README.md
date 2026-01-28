@@ -1,16 +1,42 @@
-# React + Vite
+<h1 align="center">React AI Study</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="https://www.w3schools.com/html/"><img alt="HTML5" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" /></a>
+  <a href="https://www.w3schools.com/css/"><img alt="CSS3" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" /></a>
+  <a href="https://react.dev/"><img alt="React JS" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /></a>
+  <a href="https://www.npmjs.com/"><img alt="NPM" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" /></a>
+</p>
 
-Currently, two official plugins are available:
+## 💻 Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Repository with frontend application for the use of Artificial Intelligence. 
 
-## React Compiler
+## 🚀 Technologies and Tools
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was developed using the following technologies:
 
-## Expanding the ESLint configuration
+- **Frontend:**  
+  - `HTML5`
+  - `CSS`
+  - `React`
+  - `Axios`
+ 
+## 💾 How to Run Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clone the repository
+git clone https://github.com/pauloalvesm/react-ai-study.git
+
+# Navigate to the project folder
+cd react-ai-study
+
+# Restore dependencies
+npm install
+
+# Run the project
+npm run dev
+```
+
+## 👤 Author
+
+**[Paulo Alves](https://github.com/pauloalvesm)**
