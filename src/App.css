@@ -1,77 +1,90 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-
-  --white-color1: #FFFFFF;
-  --white-color2: #FFF;
-  --white-color3: #F8F9FA;
+  --white-color1: #FFF;
+  --white-color2: #F9F9F9;
   --gray-color1: #CCC;
-  --gray-color2: #DDD;
+  --gray-color2: #F0F0F0;
+  --gray-color3: #F4F4F4;
   --dark-color1: #000000;
-  --blue-color1: #0000FF;
+  --blue-color1: #007BFF;
   --blue-color2: #00008B;
 }
 
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid var(--gray-color2);
-  border-radius: 10px;
-  background-color: var(--white-color2);
+.App {
   text-align: center;
-  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-h1 {
-  font-size: 24px;
+.tabs {
+  display: flex;
+  justify-content: space-around;
   margin-bottom: 20px;
-  color: var(--dark-color1);
 }
 
-.file-input {
-  margin: 20px 0;
-}
-
-.file-input input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+button {
+  padding: 10px 20px;
   cursor: pointer;
+  border: none;
+  background-color: var(--gray-color2);
+  font-weight: bold;
 }
 
-.upload-button {
+button.active {
   background-color: var(--blue-color1);
   color: var(--white-color1);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
-.upload-button:hover {
-  background-color: var(--blue-color2);
-}
-
-.transcription-result {
-  margin-top: 30px;
-  text-align: center;
-  color: var(--dark-color1);
-}
-
-.transcription-result h2{
-  font-size: 20px;
+input {
+  padding: 10px;
+  width: calc(100% - 22px);
   margin-bottom: 10px;
-  color: var(--blue-color2);
+  box-sizing: border-box;
 }
 
-.transcription-result p {
-  background-color: var(--white-color3);
-  padding: 15px;
+.tab-content {
+  margin-top: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--gray-color1);
   border-radius: 5px;
-  border: 1px solid var(--gray-color2);
+}
+
+.empty-image-slot {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; 
+  border: 2px dashed var(--gray-color1);
+  border-radius: 5px;
+  background-color: var(--white-color2);
+}
+
+.output {
+  margin-top: 20px;
+  text-align: left;
+  background-color: var(--gray-color3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.recipe-text {
+  max-width: 100%; 
+  padding: 10px;
+  box-sizing: border-box; 
+  word-wrap: break-word;
+  overflow-y: auto; 
+  font-size: calc(12px + 0.5vw); 
+  line-height: 1.6; 
+  border: 1px solid var(--gray-color1);
+  margin-bottom: 20px; 
 }
