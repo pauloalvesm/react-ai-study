@@ -1,0 +1,90 @@
+#root {
+  --white-color1: #FFF;
+  --white-color2: #F9F9F9;
+  --gray-color1: #CCC;
+  --gray-color2: #F0F0F0;
+  --gray-color3: #F4F4F4;
+  --dark-color1: #000000;
+  --blue-color1: #007BFF;
+  --blue-color2: #00008B;
+}
+
+.App {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--gray-color2);
+  font-weight: bold;
+}
+
+button.active {
+  background-color: var(--blue-color1);
+  color: var(--white-color1);
+}
+
+input {
+  padding: 10px;
+  width: calc(100% - 22px);
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--gray-color1);
+  border-radius: 5px;
+}
+
+.empty-image-slot {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; 
+  border: 2px dashed var(--gray-color1);
+  border-radius: 5px;
+  background-color: var(--white-color2);
+}
+
+.output {
+  margin-top: 20px;
+  text-align: left;
+  background-color: var(--gray-color3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.recipe-text {
+  max-width: 100%; 
+  padding: 10px;
+  box-sizing: border-box; 
+  word-wrap: break-word;
+  overflow-y: auto; 
+  font-size: calc(12px + 0.5vw); 
+  line-height: 1.6; 
+  border: 1px solid var(--gray-color1);
+  margin-bottom: 20px; 
+}
