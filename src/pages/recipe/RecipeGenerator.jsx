@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import api from "../../services/api";
 
 export default function RecipeGenerator() {
@@ -50,7 +51,7 @@ export default function RecipeGenerator() {
             <button onClick={createRecipe}>Generate Recipe</button>
 
             <div className="output">
-                <p>{recipe}</p>
+                <ReactMarkdown>{recipe}</ReactMarkdown>
             </div>
 
         </div>
