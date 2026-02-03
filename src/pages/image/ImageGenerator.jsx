@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import LoadingOverlay from "../../components/Loading/LoadingOverlay";
 
 export default function ImageGenerator() {
     const [prompt, setPrompt] = useState("");
@@ -8,8 +9,12 @@ export default function ImageGenerator() {
     const [height, setHeight] = useState("1024");
     const [width, setWidth] = useState("1024");
     const [imageUrls, setImageUrls] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const generateImages = async () => {
+        if (!prompt) return;
+
+        setIsLoading(true);
         try {
             const response = await api.get(`generate-image`, {
                 params: {
@@ -26,19 +31,25 @@ export default function ImageGenerator() {
             setImageUrls(data);
         } catch (error) {
             console.log("Error generating image: ", error);
+        } finally {
+            setIsLoading(false);
         }
     }
     
     return (
         <div>
+            {isLoading && <LoadingOverlay />}
             <h2>Generate Images</h2>
             <input
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Enter a prompt for generate an image"
+                disabled={isLoading}
             />
-            <button onClick={generateImages}>Generate Image</button>
+            <button onClick={generateImages} disabled={isLoading}>
+                {isLoading ? "Generating..." : "Generate Image"}
+            </button>
 
             <div className="image-grid">
                 {imageUrls.map((url, index) => (
