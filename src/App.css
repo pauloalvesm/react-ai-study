@@ -10,6 +10,7 @@
   --blue-color1: #007BFF;
   --blue-color2: #00BFFF;
   --red-color1: #FF0000;
+  --green-color1: #3AB73A;
 }
 
 .App {
@@ -90,6 +91,20 @@ img {
   line-height: 1.6; 
   border: 1px solid var(--gray-color1);
   margin-bottom: 20px; 
+}
+
+.title-text {
+  color: var(--blue-color1);
+}
+
+.success-button {
+  color: var(--green-color1);
+  background-color: var(--white-color1);
+}
+
+.success-button:hover {
+  color: var(--white-color1);
+  background-color: var(--green-color1);
 }
 
 .cancel-button {

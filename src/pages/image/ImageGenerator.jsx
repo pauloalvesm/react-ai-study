@@ -44,7 +44,7 @@ export default function ImageGenerator() {
     return (
         <div>
             {isLoading && <LoadingOverlay />}
-            <h2>Generate Images</h2>
+            <h2 className="title-text">Generate Images</h2>
             <input
                 type="text"
                 value={prompt}
@@ -52,7 +52,12 @@ export default function ImageGenerator() {
                 placeholder="Enter a prompt for generate an image"
                 disabled={isLoading}
             />
-            <button onClick={generateImages} disabled={isLoading}>
+            <button 
+                    className="success-button"
+                    onClick={generateImages} 
+                    disabled={isLoading}
+                    title="Generate Image"
+                >
                 {isLoading ? "Generating..." : "Generate Image"}
             </button>
 
@@ -60,6 +65,7 @@ export default function ImageGenerator() {
                     className="cancel-button"
                     onClick={handleClear} 
                     disabled={isLoading}
+                    title="Cancel"
                 >
                     Cancel
                 </button>

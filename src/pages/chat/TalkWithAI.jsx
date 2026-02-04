@@ -34,7 +34,7 @@ export default function TalkWithAI() {
     return (
         <div>
             {isLoading && <LoadingOverlay />}
-            <h2>Talk With AI</h2>
+            <h2 className="title-text">Talk With AI</h2>
             <input
                 type="text"
                 value={prompt}
@@ -43,7 +43,12 @@ export default function TalkWithAI() {
                 disabled={isLoading}
             />
 
-            <button onClick={askAi} disabled={isLoading}>
+            <button 
+                    className="success-button"
+                    onClick={askAi} 
+                    disabled={isLoading}
+                    title="Ask AI"
+                >
                 {isLoading ? "Carregando..." : "Ask AI"}
             </button>
 
@@ -51,6 +56,7 @@ export default function TalkWithAI() {
                     className="cancel-button"
                     onClick={handleClear} 
                     disabled={isLoading}
+                    title="Cancel"
                 >
                     Cancel
                 </button>

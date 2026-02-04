@@ -43,7 +43,7 @@ export default function RecipeGenerator() {
     return (
         <div>
             {isLoading && <LoadingOverlay />}
-            <h2>Generate Recipes</h2>
+            <h2 className="title-text">Generate Recipes</h2>
             <input
                 type="text"
                 value={ingredients}
@@ -66,7 +66,12 @@ export default function RecipeGenerator() {
                 disabled={isLoading}
             />
 
-            <button onClick={createRecipe} disabled={isLoading}>
+            <button 
+                    className="success-button"
+                    onClick={createRecipe} 
+                    disabled={isLoading}
+                    title="Generate Recipe"
+                >
                 {isLoading ? "Generating..." : "Generate Recipe"}
             </button>
 
@@ -74,6 +79,7 @@ export default function RecipeGenerator() {
                     className="cancel-button"
                     onClick={handleClear} 
                     disabled={isLoading}
+                    title="Cancel"
                 >
                     Cancel
                 </button>
