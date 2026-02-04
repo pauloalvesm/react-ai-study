@@ -10,6 +10,13 @@ export default function RecipeGenerator() {
     const [recipe, setRecipe] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
+    const handleClear = () => {
+        setIngredients("");
+        setCuisine("Any");
+        setDietaryRestrictions("");
+        setRecipe("");
+    };
+
     const createRecipe = async () => {
         if (!ingredients) return;
 
@@ -62,6 +69,14 @@ export default function RecipeGenerator() {
             <button onClick={createRecipe} disabled={isLoading}>
                 {isLoading ? "Generating..." : "Generate Recipe"}
             </button>
+
+            <button 
+                    className="cancel-button"
+                    onClick={handleClear} 
+                    disabled={isLoading}
+                >
+                    Cancel
+                </button>
 
             <div className="output">
                 <ReactMarkdown>{recipe}</ReactMarkdown>

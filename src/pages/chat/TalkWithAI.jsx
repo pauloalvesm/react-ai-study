@@ -7,6 +7,11 @@ export default function TalkWithAI() {
     const [chatResponse, setChatResponse] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
+    const handleClear = () => {
+        setPrompt("");
+        setChatResponse("");
+    }
+
     const askAi = async () => {
         if (!prompt) return;
 
@@ -41,6 +46,14 @@ export default function TalkWithAI() {
             <button onClick={askAi} disabled={isLoading}>
                 {isLoading ? "Carregando..." : "Ask AI"}
             </button>
+
+            <button 
+                    className="cancel-button"
+                    onClick={handleClear} 
+                    disabled={isLoading}
+                >
+                    Cancel
+                </button>
 
             <div className="output">
                 <p>{chatResponse}</p>

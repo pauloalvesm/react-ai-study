@@ -9,6 +9,7 @@
   --dark-color1: #000000;
   --blue-color1: #007BFF;
   --blue-color2: #00BFFF;
+  --red-color1: #FF0000;
 }
 
 .App {
@@ -27,7 +28,7 @@
 button {
   padding: 10px 20px;
   cursor: pointer;
-  border: none;
+  border: 1px solid var(--gray-color1);
   background-color: var(--gray-color2);
   font-weight: bold;
 }
@@ -89,4 +90,16 @@ img {
   line-height: 1.6; 
   border: 1px solid var(--gray-color1);
   margin-bottom: 20px; 
+}
+
+.cancel-button {
+  margin-left: 10px;
+  color: var(--red-color1);
+  background-color: var(--white-color1);
+}
+
+.cancel-button:hover {
+  margin-left: 10px;
+  color: var(--white-color1);
+  background-color: var(--red-color1);
 }

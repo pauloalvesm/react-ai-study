@@ -11,6 +11,11 @@ export default function ImageGenerator() {
     const [imageUrls, setImageUrls] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+    const handleClear = () => {
+        setPrompt("");
+        setImageUrls([]);
+    };
+
     const generateImages = async () => {
         if (!prompt) return;
 
@@ -50,6 +55,14 @@ export default function ImageGenerator() {
             <button onClick={generateImages} disabled={isLoading}>
                 {isLoading ? "Generating..." : "Generate Image"}
             </button>
+
+            <button 
+                    className="cancel-button"
+                    onClick={handleClear} 
+                    disabled={isLoading}
+                >
+                    Cancel
+                </button>
 
             <div className="image-grid">
                 {imageUrls.map((url, index) => (
