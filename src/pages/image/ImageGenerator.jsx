@@ -47,7 +47,7 @@ export default function ImageGenerator() {
     }
     
     return (
-        <div>
+        <div className="animation-bounce-in-2s">
             {isLoading && <LoadingOverlay />}
             <h2 className="title-text">Generate Images</h2>
             <input

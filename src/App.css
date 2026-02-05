@@ -118,3 +118,8 @@ img {
   color: var(--white-color1);
   background-color: var(--red-color1);
 }
+
+.animation-bounce-in-2s {
+    animation: bounceIn;
+    animation-duration: 2s;
+}

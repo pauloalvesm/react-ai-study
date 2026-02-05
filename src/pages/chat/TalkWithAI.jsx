@@ -37,7 +37,7 @@ export default function TalkWithAI() {
     }
     
     return (
-        <div>
+        <div className="animation-bounce-in-2s">
             {isLoading && <LoadingOverlay />}
             <h2 className="title-text">Talk With AI</h2>
             <input

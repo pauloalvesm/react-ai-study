@@ -46,7 +46,7 @@ export default function RecipeGenerator() {
     }
     
     return (
-        <div>
+        <div className="animation-bounce-in-2s">
             {isLoading && <LoadingOverlay />}
             <h2 className="title-text">Generate Recipes</h2>
             <input
