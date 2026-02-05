@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api";
 import LoadingOverlay from "../../components/Loading/LoadingOverlay";
+import notificationService from "../../utils/notificationService";
 
 export default function TalkWithAI() {
     const [prompt, setPrompt] = useState("");
@@ -13,7 +14,10 @@ export default function TalkWithAI() {
     }
 
     const askAi = async () => {
-        if (!prompt) return;
+        if (!prompt) {
+            notificationService.error("Please enter a prompt!");
+            return;
+        }
 
         setIsLoading(true);
         try {
@@ -22,12 +26,13 @@ export default function TalkWithAI() {
             });
 
             const data = await response.data;
-            console.log(data);
             setChatResponse(data);
-        } catch (error) {
-            console.log("Error generating response: ", error);
-        } finally {
+
             setIsLoading(false);
+            notificationService.success("Response successfully generated!");
+        } catch (error) {
+            setIsLoading(false);
+            notificationService.error("Error generating AI response.");
         }
     }
     
@@ -49,7 +54,7 @@ export default function TalkWithAI() {
                     disabled={isLoading}
                     title="Ask AI"
                 >
-                {isLoading ? "Carregando..." : "Ask AI"}
+                {isLoading ? "Loading..." : "Ask AI"}
             </button>
 
             <button 

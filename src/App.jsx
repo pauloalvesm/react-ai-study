@@ -3,6 +3,8 @@ import "./App.css";
 import TalkWithAI from "./pages/chat/TalkWithAI";
 import RecipeGenerator from "./pages/recipe/RecipeGenerator";
 import ImageGenerator from "./pages/image/ImageGenerator";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("ask-ai");
@@ -13,6 +15,12 @@ export default function App() {
 
   return (
     <div className="App">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="colored"
+      />
+      
       <button 
         className={activeTab === "ask-ai" ? "active" : ""}
         onClick={() => handleTabChange("ask-ai")}>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api";
 import LoadingOverlay from "../../components/Loading/LoadingOverlay";
+import notificationService from "../../utils/notificationService";
 
 export default function ImageGenerator() {
     const [prompt, setPrompt] = useState("");
@@ -17,7 +18,10 @@ export default function ImageGenerator() {
     };
 
     const generateImages = async () => {
-        if (!prompt) return;
+        if (!prompt) {
+            notificationService.error("Please enter a prompt for the image!");
+            return;
+        }
 
         setIsLoading(true);
         try {
@@ -32,12 +36,13 @@ export default function ImageGenerator() {
             });
 
             const data = await response.data;
-            console.log(data);
             setImageUrls(data);
-        } catch (error) {
-            console.log("Error generating image: ", error);
-        } finally {
+
             setIsLoading(false);
+            notificationService.success("Image generated successfully!");
+        } catch (error) {
+            setIsLoading(false);
+            notificationService.error("Error generating image.");
         }
     }
     

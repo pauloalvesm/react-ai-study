@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import api from "../../services/api";
 import LoadingOverlay from "../../components/Loading/LoadingOverlay";
+import notificationService from "../../utils/notificationService";
 
 export default function RecipeGenerator() {
     const [ingredients, setIngredients] = useState("");
@@ -18,7 +19,10 @@ export default function RecipeGenerator() {
     };
 
     const createRecipe = async () => {
-        if (!ingredients) return;
+        if (!ingredients) {
+            notificationService.error("Please enter ingredients!");
+            return;
+        }
 
         setIsLoading(true);
         try {
@@ -31,12 +35,13 @@ export default function RecipeGenerator() {
             });
 
             const data = await response.data;
-            console.log(data);
             setRecipe(data);
-        } catch (error) {
-            console.log("Error generating recipe: ", error);
-        } finally {
+
             setIsLoading(false);
+            notificationService.success("Recipe generated successfully!");
+        } catch (error) {
+            setIsLoading(false);
+            notificationService.error("Error generating recipe.");
         }
     }
     
