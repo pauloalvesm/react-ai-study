@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import LoadingOverlay from "../../components/Loading/LoadingOverlay";
+import notificationService from "../../utils/notificationService";
 
 export default function ImageGenerator() {
     const [prompt, setPrompt] = useState("");
@@ -8,8 +10,20 @@ export default function ImageGenerator() {
     const [height, setHeight] = useState("1024");
     const [width, setWidth] = useState("1024");
     const [imageUrls, setImageUrls] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClear = () => {
+        setPrompt("");
+        setImageUrls([]);
+    };
 
     const generateImages = async () => {
+        if (!prompt) {
+            notificationService.error("Please enter a prompt for the image!");
+            return;
+        }
+
+        setIsLoading(true);
         try {
             const response = await api.get(`generate-image`, {
                 params: {
@@ -22,23 +36,44 @@ export default function ImageGenerator() {
             });
 
             const data = await response.data;
-            console.log(data);
             setImageUrls(data);
+
+            setIsLoading(false);
+            notificationService.success("Image generated successfully!");
         } catch (error) {
-            console.log("Error generating image: ", error);
+            setIsLoading(false);
+            notificationService.error("Error generating image.");
         }
     }
     
     return (
-        <div>
-            <h2>Generate Images</h2>
+        <div className="animation-bounce-in-2s">
+            {isLoading && <LoadingOverlay />}
+            <h2 className="title-text">Generate Images</h2>
             <input
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Enter a prompt for generate an image"
+                disabled={isLoading}
             />
-            <button onClick={generateImages}>Generate Image</button>
+            <button 
+                    className="success-button"
+                    onClick={generateImages} 
+                    disabled={isLoading}
+                    title="Generate Image"
+                >
+                {isLoading ? "Generating..." : "Generate Image"}
+            </button>
+
+            <button 
+                    className="cancel-button"
+                    onClick={handleClear} 
+                    disabled={isLoading}
+                    title="Cancel"
+                >
+                    Cancel
+                </button>
 
             <div className="image-grid">
                 {imageUrls.map((url, index) => (
