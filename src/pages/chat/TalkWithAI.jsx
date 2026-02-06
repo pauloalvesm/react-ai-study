@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import api from "../../services/api";
 import LoadingOverlay from "../../components/Loading/LoadingOverlay";
 import notificationService from "../../utils/notificationService";
@@ -67,7 +68,7 @@ export default function TalkWithAI() {
                 </button>
 
             <div className="output">
-                <p>{chatResponse}</p>
+                <ReactMarkdown>{chatResponse}</ReactMarkdown>
             </div>
         </div>
     );
